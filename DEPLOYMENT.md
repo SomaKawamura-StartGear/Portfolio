@@ -33,6 +33,7 @@ npm run build
 - **Build command**: `npm run build`
 - **Build output directory**: `dist`
 - **Root directory**: `/` (空のまま)
+- **Environment variables**: `NODE_VERSION: 20`
 
 ### 5. 環境変数設定
 
@@ -65,17 +66,21 @@ GitHub リポジトリにプッシュすると、自動的にデプロイが実�
 
 - ビルド出力ディレクトリが`dist`になっているか確認
 - 静的ファイルが正しく生成されているか確認
-- SPAルーティングの設定が正しいか確認
+- SPA ルーティングの設定が正しいか確認
 
 ### よくあるエラーと解決方法
 
 #### "Missing entry-point to Worker script or to assets directory"
-- `wrangler.toml`で`[assets]`セクションを正しく設定
-- `directory = "./dist"`を指定
 
-#### "Unexpected fields found in build field"
-- `[build]`セクションを削除し、`[assets]`セクションを使用
-- Cloudflare Pages用の設定に変更
+- `wrangler.toml`ファイルを削除
+- Cloudflare Pages 用の設定ファイルを使用
+
+#### "The directory specified by the assets.directory field does not exist"
+
+- `wrangler.toml`ファイルを削除
+- Cloudflare Pages の標準的なビルド設定を使用
+- ビルドコマンド: `npm run build`
+- 出力ディレクトリ: `dist`
 
 ## 参考リンク
 

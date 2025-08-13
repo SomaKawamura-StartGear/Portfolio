@@ -6,14 +6,5 @@
   "root_directory": "/",
   "environment_variables": {
     "NODE_VERSION": "20"
-  },
-  "functions": {
-    "directory": "functions"
-  },
-  "routes": [
-    {
-      "pattern": "/*",
-      "serve": "/index.html"
-    }
-  ]
+  }
 }
