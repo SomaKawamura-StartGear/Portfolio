@@ -5,7 +5,7 @@ export const Profile = () => {
     <section id="profile" className="profile">
       <div className="profile-container">
         <div className="profile-image text-center justify-center flex">
-          <img src="\assets\images\profile.png" alt="Kawamura Soma" />
+          <img src="/images/profile.png" alt="Kawamura Soma" />
         </div>
         <div className="profile-info">
           <h2 className="name">Kawamura Soma</h2>
