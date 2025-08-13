@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "production_branch": "main",
+  "build_command": "npm run build",
+  "output_directory": "dist",
+  "root_directory": "/",
+  "environment_variables": {
+    "NODE_VERSION": "20"
+  }
+}
