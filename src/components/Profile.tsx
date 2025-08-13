@@ -5,7 +5,7 @@ export const Profile = () => {
     <section id="profile" className="profile">
       <div className="profile-container">
         <div className="profile-image text-center justify-center flex">
-          <img src="src\assets\images\profile.png" alt="Kawamura Soma" />
+          <img src="\assets\images\profile.png" alt="Kawamura Soma" />
         </div>
         <div className="profile-info">
           <h2 className="name">Kawamura Soma</h2>
@@ -17,7 +17,7 @@ export const Profile = () => {
               rel="noopener noreferrer"
               className="social-link github"
             >
-              <img src="src/assets/images/github.svg" alt="GitHub" />
+              <img src="/assets/images/github.svg" alt="GitHub" />
             </a>
             <a
               href="https://qiita.com/KEIDORO"
@@ -25,7 +25,7 @@ export const Profile = () => {
               rel="noopener noreferrer"
               className="social-link qiita"
             >
-              <img src="src/assets/images/qiita.svg" alt="Qiita" />
+              <img src="/assets/images/qiita.svg" alt="Qiita" />
             </a>
             <a
               href="https://x.com/777so_jp"
@@ -33,7 +33,7 @@ export const Profile = () => {
               rel="noopener noreferrer"
               className="social-link x"
             >
-              <img src="src/assets/images/x.svg" alt="X (Twitter)" />
+              <img src="/assets/images/x.svg" alt="X (Twitter)" />
             </a>
           </div>
         </div>
