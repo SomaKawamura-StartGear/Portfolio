@@ -72,13 +72,15 @@ GitHub リポジトリにプッシュすると、自動的にデプロイが実�
 
 #### "Missing entry-point to Worker script or to assets directory"
 
-- `wrangler.toml`で`[assets]`セクションを正しく設定
-- `directory = "./dist"`を指定
+- `wrangler.toml`ファイルを削除
+- Cloudflare Pages 用の設定ファイルを使用
 
-#### "Unexpected fields found in build field"
+#### "The directory specified by the assets.directory field does not exist"
 
-- `[build]`セクションを削除し、`[assets]`セクションを使用
-- Cloudflare Pages 用の設定に変更
+- `wrangler.toml`ファイルを削除
+- Cloudflare Pages の標準的なビルド設定を使用
+- ビルドコマンド: `npm run build`
+- 出力ディレクトリ: `dist`
 
 ## 参考リンク
 
