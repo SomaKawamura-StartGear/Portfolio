@@ -17,7 +17,7 @@ export const Profile = () => {
               rel="noopener noreferrer"
               className="social-link github"
             >
-              <img src="/assets/images/github.svg" alt="GitHub" />
+              <img src="/images/github.svg" alt="GitHub" />
             </a>
             <a
               href="https://qiita.com/KEIDORO"
@@ -25,7 +25,7 @@ export const Profile = () => {
               rel="noopener noreferrer"
               className="social-link qiita"
             >
-              <img src="/assets/images/qiita.svg" alt="Qiita" />
+              <img src="/images/qiita.svg" alt="Qiita" />
             </a>
             <a
               href="https://x.com/777so_jp"
@@ -33,7 +33,7 @@ export const Profile = () => {
               rel="noopener noreferrer"
               className="social-link x"
             >
-              <img src="/assets/images/x.svg" alt="X (Twitter)" />
+              <img src="/images/x.svg" alt="X (Twitter)" />
             </a>
           </div>
         </div>
