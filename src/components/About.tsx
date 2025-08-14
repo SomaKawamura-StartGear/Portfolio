@@ -4,7 +4,7 @@ export const About = () => {
   return (
     <section id="about" className="about">
       <div className="about-container">
-        <h2 className="section-title">About Me</h2>
+        <h2 className="section-title">About</h2>
         <div className="timeline">
           <div className="timeline-item">
             <div className="timeline-date">2023/12 ~</div>
