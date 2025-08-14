@@ -8,6 +8,16 @@ export const Header = () => {
     });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <header className="header">
       <div className="header-container">
@@ -19,19 +29,28 @@ export const Header = () => {
         <nav className="navigation">
           <ul className="nav-list">
             <li>
-              <a href="#about" className="nav-link">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="nav-link"
+              >
                 about
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#projects" className="nav-link">
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="nav-link"
+              >
                 projects
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#contact" className="nav-link">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="nav-link"
+              >
                 contact
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
