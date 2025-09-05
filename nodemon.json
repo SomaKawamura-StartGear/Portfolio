@@ -1,0 +1,9 @@
+{
+  "watch": ["server"],
+  "ext": "js,json",
+  "ignore": ["node_modules", "dist"],
+  "exec": "npm run build:server && npm run server",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
