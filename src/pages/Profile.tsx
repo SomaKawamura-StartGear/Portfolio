@@ -1,41 +1,22 @@
 import "./Profile.css";
+import { ProfileData } from "../Data/ProfileData";
+import { SocialLinks } from "../components/Profile/SocialLinks";
+import { HumanData } from "../Data/ProfileData";
 
 export const Profile = () => {
   return (
     <section id="profile" className="profile">
       <div className="profile-container">
         <div className="profile-image text-center justify-center flex">
-          <img src="/images/profile.png" alt="Kawamura Soma" />
+          <img src={HumanData.iconlink} alt={HumanData.name} />
         </div>
         <div className="profile-info">
-          <h2 className="name">Kawamura Soma</h2>
-          <p className="title">フロントエンジニア & バックエンジニア</p>
-          <div className="social-links">
-            <a
-              href="https://github.com/KEIDOROa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link github"
-            >
-              <img src="/images/github.svg" alt="GitHub" />
-            </a>
-            <a
-              href="https://qiita.com/KEIDORO"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link qiita"
-            >
-              <img src="/images/qiita.svg" alt="Qiita" />
-            </a>
-            <a
-              href="https://x.com/777so_jp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link x"
-            >
-              <img src="/images/x.svg" alt="X (Twitter)" />
-            </a>
-          </div>
+          <h2 className="name">{HumanData.name}</h2>
+          <p
+            className="description"
+            dangerouslySetInnerHTML={{ __html: HumanData.description }}
+          ></p>
+          <SocialLinks links={ProfileData} />
         </div>
       </div>
     </section>
