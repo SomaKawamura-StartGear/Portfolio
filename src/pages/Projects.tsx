@@ -1,18 +1,14 @@
 import "./Projects.css";
 import { ProjectsData } from "../Data/ProjectsData";
 import { Contena } from "../components/projects/Contena";
+import { Section } from "./Section";
 
 export const Projects = () => {
   return (
-    <section id="projects" className="projects">
-      <div className="projects-container">
-        <h2 className="section-title">Projects</h2>
-        <div className="projects-grid">
-          {ProjectsData.map((project) => (
-            <Contena key={project.title} {...project} />
-          ))}
-        </div>
-      </div>
-    </section>
+    <Section title="Projects">
+      {ProjectsData.map((project) => (
+        <Contena key={project.title} {...project} />
+      ))}
+    </Section>
   );
 };
