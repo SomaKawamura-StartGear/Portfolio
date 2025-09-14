@@ -18,7 +18,10 @@
     "start:ssr": "vite-plugin-ssr start",
     "build:ssr": "vite build",
     "build:production": "npm run build:all && npm run build:ssr",
-    "start:production": "npm run build:production && npm run server"
+    "start:production": "npm run build:production && npm run server",
+    "ssr:server": "node dist/server/ssr-server.js",
+    "dev:ssr": "nodemon --watch server --ext js --exec \"npm run build:server && npm run ssr:server\"",
+    "start:ssr-full": "npm run build:production && npm run ssr:server"
   },
   "dependencies": {
     "compression": "^1.7.4",
