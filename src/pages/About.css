@@ -52,7 +52,7 @@
 }
 
 .timeline-date {
-  background: rgba(100, 181, 246, 0.8);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -60,14 +60,14 @@
   font-size: 0.9rem;
   min-width: 120px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(109, 106, 111, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
 }
 
 .timeline-date:hover {
-  background: rgba(100, 181, 246, 0.9);
-  box-shadow: 0 6px 20px rgba(100, 181, 246, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(109, 106, 111, 0.4);
   transform: scale(1.02);
 }
 
@@ -78,14 +78,14 @@
   margin: 0 2rem;
   flex: 1;
   max-width: 400px;
-  border: 1px solid rgba(100, 181, 246, 0.4);
+  border: 1px solid rgba(68, 73, 78, 0.4);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .timeline-content:hover {
-  border-color: rgba(100, 181, 246, 0.6);
+  border-color: rgba(111, 116, 120, 0.6);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.2);
