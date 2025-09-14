@@ -8,9 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build:pages": "npm run build && echo 'Build completed for Cloudflare Pages'",
-    "start": "vite-plugin-ssr start",
-    "build:ssr": "vite build"
+    "build:pages": "npm run build && echo 'Build completed for Cloudflare Pages'"
   },
   "dependencies": {
     "react": "^19.1.1",
