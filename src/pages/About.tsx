@@ -1,7 +1,7 @@
 import "./About.css";
 import { Section } from "./Section";
 import { Contena } from "../components/About/Contena";
-import { AboutData } from "../Data/AboutData";
+import { AboutData } from "../data/AboutData";
 
 export const About = () => {
   return (

@@ -1,5 +1,5 @@
 import "./Projects.css";
-import { ProjectsData } from "../Data/ProjectsData";
+import { ProjectsData } from "../data/ProjectsData";
 import { Contena } from "../components/Projects/Contena";
 import { Section } from "./Section";
 

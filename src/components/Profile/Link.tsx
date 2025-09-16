@@ -1,4 +1,4 @@
-import type { ProfileData } from "../../Data/ProfileData";
+import type { ProfileData } from "../../data/ProfileData";
 
 export const Links = (link: ProfileData) => {
   return (

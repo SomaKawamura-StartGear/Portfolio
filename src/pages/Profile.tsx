@@ -1,7 +1,7 @@
 import "./Profile.css";
-import { ProfileData } from "../Data/ProfileData";
+import { ProfileData } from "../data/ProfileData";
 import { SocialLinks } from "../components/Profile/SocialLinks";
-import { HumanData } from "../Data/ProfileData";
+import { HumanData } from "../data/ProfileData";
 
 export const Profile = () => {
   return (

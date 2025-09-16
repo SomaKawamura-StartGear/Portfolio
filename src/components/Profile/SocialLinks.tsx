@@ -1,4 +1,4 @@
-import { ProfileData } from "../../Data/ProfileData";
+import { ProfileData } from "../../data/ProfileData";
 import { Links } from "./Link";
 
 interface SocialLinksProps {
