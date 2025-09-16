@@ -1,6 +1,6 @@
 import "./Projects.css";
 import { ProjectsData } from "../Data/ProjectsData";
-import { Contena } from "../components/projects/Contena";
+import { Contena } from "../components/Projects/Contena";
 import { Section } from "./Section";
 
 export const Projects = () => {
