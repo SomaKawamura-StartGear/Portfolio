@@ -1,4 +1,3 @@
-import "./Contena.css";
 interface ContenaProps {
   title: string;
   role: string;
