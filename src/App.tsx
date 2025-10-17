@@ -1,9 +1,9 @@
-import { AnimatedBackground } from "./components/AnimatedBackground";
-import { Header } from "./components/Header";
-import { Profile } from "./components/Profile";
-import { About } from "./components/About";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
+import { AnimatedBackground } from "./pages/AnimatedBackground";
+import { Header } from "./pages/Header";
+import { Profile } from "./pages/Profile";
+import { About } from "./pages/About";
+import { Projects } from "./pages/Projects";
+import { Contact } from "./pages/Contact";
 import "./App.css";
 
 export const App = () => {

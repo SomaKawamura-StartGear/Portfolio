@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./AnimatedBackground.css";
 
 /**
@@ -11,6 +12,23 @@ import "./AnimatedBackground.css";
  */
 
 export const AnimatedBackground = () => {
+  useEffect(() => {
+    // ランダムな色を生成する関数
+    const generateRandomColor = () => {
+      const hue = Math.floor(Math.random() * 360); // 0-360度の色相
+      const saturation = Math.floor(Math.random() * 50) + 30; // 30-80%の彩度
+      const lightness = Math.floor(Math.random() * 30) + 40; // 40-70%の明度
+      return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    };
+
+    // 各円にランダムな色を適用
+    const circles = document.querySelectorAll(".circles li");
+    circles.forEach((circle) => {
+      const randomColor = generateRandomColor();
+      (circle as HTMLElement).style.backgroundColor = randomColor;
+    });
+  }, []);
+
   return (
     <div className="area">
       <ul className="circles">

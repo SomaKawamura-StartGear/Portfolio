@@ -11,7 +11,6 @@
 
 .contact-container {
   text-align: center;
-  max-width: 600px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -43,12 +42,11 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin: 0;
-  max-width: 500px;
 }
 
 .email-section {
   width: 100%;
-  max-width: 400px;
+  max-width: 80%;
 }
 
 .email-card {
@@ -124,8 +122,8 @@
 
 .email-address {
   color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 1000;
   font-family: "Courier New", monospace;
 }
 

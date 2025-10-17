@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build:pages": "npm run build && echo 'Build completed for Cloudflare Pages'"
+    "build:pages": "npm run build && echo 'Build completed for Cloudflare Pages'",
+    "server": "http-server dist -p 3000 -o"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -16,18 +17,23 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@swc/core": "^1.13.5",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
+    "core-js": "^3.45.1",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "http-server": "^14.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.14",
+    "terser": "^5.44.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
+    "unplugin-swc": "^1.5.7",
+    "vite": "^7.1.6"
   }
 }

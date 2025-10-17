@@ -1,0 +1,15 @@
+{
+  "port": 3000,
+  "host": "localhost",
+  "cache": 3600,
+  "cors": true,
+  "gzip": true,
+  "brotli": true,
+  "robots": true,
+  "ext": "html",
+  "proxy": false,
+  "proxyOptions": {
+    "target": "http://localhost:3000",
+    "changeOrigin": true
+  }
+}
