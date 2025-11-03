@@ -12,12 +12,12 @@ export const AboutData: AboutData[] = [
     },
     {
         title: "Pactom",
-        limit_date: "2025/07 ~",
+        limit_date: "2025/07~2025/09",
         description: "設計書からの実装を担当 <br />React、TypeScript、Tailwind CSSを使用",
     },
     {
-        title: "スタートプログラミング株式会社",
-        limit_date: "2023/12 ~",
+        title: "ひろぎんナレッジスクエア株式会社",
+        limit_date: "2023/12 ~2025/11",
         description: "主に小中高生にスクラッチ、html、css、jsを指導",
     },
 ];  
