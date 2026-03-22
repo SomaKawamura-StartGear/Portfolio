@@ -1,0 +1,90 @@
+.project-card--expandable {
+  min-width: 0;
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header--expandable {
+  min-width: 0;
+}
+
+.project-title--single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.project-links--with-toggles {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.project-links .project-title-toggle,
+.project-footer-actions .project-title-toggle {
+  margin-top: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  align-self: center;
+}
+
+.project-title-toggle {
+  display: inline-flex;
+  margin-top: 0;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.project-title-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.project-description-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-card--expandable .project-description-block {
+  flex: 1 1 auto;
+  padding-bottom: 0.75rem;
+}
+
+.project-card--expandable .project-description-block .project-description {
+  margin-bottom: 0;
+}
+
+.project-description--collapsed {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(1.5em * 3);
+}
+
+.project-description--expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+  min-height: 0;
+}

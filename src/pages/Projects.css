@@ -52,6 +52,11 @@
   gap: 1rem;
 }
 
+.project-card--expandable .project-links {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
 .project-link {
   color: #ffffff;
   text-decoration: none;

@@ -37,3 +37,8 @@
   gap: 2rem;
   margin-top: 2rem;
 }
+
+.grid--projects,
+.grid--about {
+  align-items: start;
+}

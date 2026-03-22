@@ -5,9 +5,9 @@ import { AboutData, type AboutData as AboutDataType } from "../data/AboutData";
 
 export const About = () => {
   return (
-    <Section title="About" id="about">
+    <Section title="About" id="about" gridClassName="grid--about">
       {AboutData.map((about: AboutDataType) => (
-        <Contena key={about.title} {...about} />
+        <Contena key={about.title} {...about} expandable />
       ))}
     </Section>
   );
