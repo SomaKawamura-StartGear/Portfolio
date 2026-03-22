@@ -8,7 +8,7 @@ import { Section } from "./Section";
 
 export const Projects = () => {
   return (
-    <Section title="Projects">
+    <Section title="Projects" id="projects">
       {ProjectsData.map((project: ProjectsDataType) => (
         <Contena key={project.title} {...project} />
       ))}

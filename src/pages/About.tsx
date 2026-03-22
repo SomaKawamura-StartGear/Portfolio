@@ -5,7 +5,7 @@ import { AboutData, type AboutData as AboutDataType } from "../data/AboutData";
 
 export const About = () => {
   return (
-    <Section title="About">
+    <Section title="About" id="about">
       {AboutData.map((about: AboutDataType) => (
         <Contena key={about.title} {...about} />
       ))}
