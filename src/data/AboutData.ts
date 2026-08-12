@@ -6,6 +6,17 @@ export interface AboutData {
 
 export const AboutData: AboutData[] = [
     {
+        title: "DMM Sprint 2026 Goコース",
+        limit_date: "2026/08/03 ~ 2026/08/07",
+        description:
+            "DMM株式会社の短期インターンに参加<br />Go言語・オニオンアーキテクチャ・DDDを学び、SNSアプリ「Yatter」をチーム開発",
+    },
+    {
+        title: "株式会社サイバーエージェント（1dayインターン）",
+        limit_date: "2026/06/27",
+        description: "マルチテナントなシステムを設計",
+    },
+    {
         title: "Crosshare株式会社",
         limit_date: "2024/04 ~ 2024/12",
         description:
