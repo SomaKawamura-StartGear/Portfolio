@@ -105,7 +105,9 @@ export const createSmoothProgress = (options: SmoothProgressOptions = {}) => {
     subscribe(listener: Listener) {
       listeners.add(listener);
       listener(lastEmitted);
-      return () => listeners.delete(listener);
+      return () => {
+        listeners.delete(listener);
+      };
     },
 
     start() {
