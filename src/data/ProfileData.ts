@@ -38,7 +38,7 @@ export const HumanData: HumanData = {
 
 export const ProfileData: ProfileData[] = [
   {
-    snslink: "https://github.com/KEIDOROa",
+    snslink: "https://github.com/SomaKawamura-StartGear?tab=repositories",
     imglink: "/images/github.svg",
     description: "G itHub",
   },

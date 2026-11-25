@@ -6,6 +6,7 @@ interface ContenaProps {
   limit_date: string;
   description: string;
   expandable?: boolean;
+  qiitaLink?: string;
 }
 
 export const Contena = ({
@@ -13,6 +14,7 @@ export const Contena = ({
   limit_date,
   description,
   expandable = false,
+  qiitaLink,
 }: ContenaProps) => {
   const [expanded, setExpanded] = useState(false);
   const [titleOverflow, setTitleOverflow] = useState(false);
@@ -69,8 +71,20 @@ export const Contena = ({
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </div>
-          {showExpand && (
-            <div className="project-footer-actions">
+          <div className="project-footer-actions">
+            {qiitaLink && (
+              <a
+                href={qiitaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about-qiita-link"
+                aria-label={`${title}のQiita記事を開く`}
+              >
+                <img src="/images/qiita.svg" alt="" />
+                <span>Qiita</span>
+              </a>
+            )}
+            {showExpand && (
               <button
                 type="button"
                 className="project-title-toggle"
@@ -84,8 +98,8 @@ export const Contena = ({
               >
                 {expanded ? "閉じる" : "もっと見る"}
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </>
       ) : (
         <p
