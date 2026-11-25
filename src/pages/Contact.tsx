@@ -7,7 +7,7 @@ export const Contact = () => {
   };
 
   return (
-    <Section title="Contact">
+    <Section title="Contact" id="contact">
       <div className="contact-content">
         <div className="email-section">
           <div className="email-card" onClick={handleEmailClick}>
