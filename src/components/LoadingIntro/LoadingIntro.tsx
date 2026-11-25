@@ -13,11 +13,9 @@ import "./LoadingIntro.css";
  * Mack Ayache 氏の Pen (https://codepen.io/Ayachem/pen/KaLbZK) を再デザインしたものです。
  */
 
-type Phase = "progress" | "draw" | "identity" | "exit" | "done";
+type Phase = "draw" | "identity" | "exit" | "done";
 
 type LoadingIntroProps = {
-  progress: number;
-  ready: boolean;
   onComplete: () => void;
 };
 
@@ -25,25 +23,8 @@ const DRAW_MS = 2600;
 const IDENTITY_MS = 1800;
 const EXIT_MS = 900;
 
-export const LoadingIntro = ({
-  progress,
-  ready,
-  onComplete,
-}: LoadingIntroProps) => {
-  const [phase, setPhase] = useState<Phase>("progress");
-  const [displayProgress, setDisplayProgress] = useState(0);
-
-  useEffect(() => {
-    setDisplayProgress((current) => Math.max(current, Math.min(progress, 100)));
-  }, [progress]);
-
-  useEffect(() => {
-    if (!ready || phase !== "progress") return;
-
-    setDisplayProgress(100);
-    const timer = window.setTimeout(() => setPhase("draw"), 320);
-    return () => window.clearTimeout(timer);
-  }, [ready, phase]);
+export const LoadingIntro = ({ onComplete }: LoadingIntroProps) => {
+  const [phase, setPhase] = useState<Phase>("draw");
 
   useEffect(() => {
     if (phase !== "draw") return;
@@ -75,16 +56,9 @@ export const LoadingIntro = ({
   return (
     <div
       className={`loading-intro ${phase === "exit" ? "loading-intro--exit" : ""}`}
-      aria-busy={phase === "progress" || phase === "draw"}
+      aria-busy={phase === "draw"}
       aria-live="polite"
     >
-      {phase === "progress" && (
-        <div className="loading-intro__progress">
-          <span className="loading-intro__percent">{displayProgress}</span>
-          <span className="loading-intro__percent-unit">%</span>
-        </div>
-      )}
-
       {phase === "draw" && (
         <div className="loading-intro__draw">
           <svg
@@ -106,10 +80,10 @@ export const LoadingIntro = ({
             </g>
 
             <g className="letter letter-r">
-              <line className="stroke stroke-r-stem" x1="222" y1="35" x2="222" y2="132" />
+              <line className="stroke stroke-r-stem" x1="220" y1="35" x2="220" y2="132" />
               <path
                 className="stroke stroke-r-arm"
-                d="M222 55 Q255 48 268 72"
+                d="M220 72 Q220 38 258 38"
               />
             </g>
 
