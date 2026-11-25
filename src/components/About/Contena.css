@@ -1,8 +1,10 @@
 .project-card--expandable {
   min-width: 0;
-  min-height: 12rem;
+  height: 100%;
+  min-height: 14.5rem;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .project-header--expandable {
@@ -22,6 +24,7 @@
   align-items: center;
   margin-top: auto;
   padding-top: 0.25rem;
+  min-height: 2.25rem;
 }
 
 .project-links--with-toggles {

@@ -69,8 +69,8 @@ export const Contena = ({
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </div>
-          {showExpand && (
-            <div className="project-footer-actions">
+          <div className="project-footer-actions">
+            {showExpand && (
               <button
                 type="button"
                 className="project-title-toggle"
@@ -84,8 +84,8 @@ export const Contena = ({
               >
                 {expanded ? "閉じる" : "もっと見る"}
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </>
       ) : (
         <p

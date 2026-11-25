@@ -6,6 +6,18 @@ export interface AboutData {
 
 export const AboutData: AboutData[] = [
     {
+        title: "ラクスル株式会社（Hack Week）",
+        limit_date: "2026/09/07 ~ 2026/09/11",
+        description:
+            "社内ハッカソン「Hack Week」にインターンとして参加<br />実際のサービス課題に対し、課題整理・設計・実装・発表まで担当<br />限られた期間で優先度を見極め、実装前に仕様と必要性を確認する重要性を学んだ",
+    },
+    {
+        title: "teamLab株式会社",
+        limit_date: "2026/08/17 ~ 2026/08/28",
+        description:
+            "2週間のエンジニアインターンに参加。Webアプリケーションの開発を担当<br />実装からコードレビューまで経験し、責務分離や保守性を意識した設計・実装を学習<br />React、TypeScript などを使用",
+    },
+    {
         title: "DMM Sprint 2026 Goコース",
         limit_date: "2026/08/03 ~ 2026/08/07",
         description:
