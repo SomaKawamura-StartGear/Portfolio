@@ -5,6 +5,7 @@ interface SectionProps {
   children: React.ReactNode;
   id?: string;
   gridClassName?: string;
+  footer?: React.ReactNode;
 }
 
 export const Section = ({
@@ -12,6 +13,7 @@ export const Section = ({
   children,
   id,
   gridClassName,
+  footer,
 }: SectionProps) => {
   return (
     <section id={id} className="sections">
@@ -20,6 +22,7 @@ export const Section = ({
         <div className={gridClassName ? `grid ${gridClassName}` : "grid"}>
           {children}
         </div>
+        {footer}
       </div>
     </section>
   );

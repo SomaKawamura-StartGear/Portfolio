@@ -1,4 +1,5 @@
 import type { ProfileData } from "../../data/ProfileData";
+import { SkeletonImage } from "../Skeleton/SkeletonImage";
 
 export const Links = (link: ProfileData) => {
   return (
@@ -8,7 +9,14 @@ export const Links = (link: ProfileData) => {
       rel="noopener noreferrer"
       className="social-link x"
     >
-      <img src={link.imglink} alt={`${link.description}`} />
+      <SkeletonImage
+        src={link.imglink}
+        alt={link.description}
+        variant="circle"
+        width={24}
+        height={24}
+        className="social-link__skeleton"
+      />
     </a>
   );
 };
