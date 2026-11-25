@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Local/original assets (not for public delivery)
+*_old.*
+*_old
+src/assets/images/profile*.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

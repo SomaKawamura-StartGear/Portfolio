@@ -1,37 +1,72 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HumanData } from "../../data/ProfileData";
+import {
+  completeProgress,
+  markProgressMilestone,
+  PROGRESS_MILESTONES,
+  useSmoothProgress,
+} from "../../hooks/useSmoothProgress";
+import { SkeletonImage } from "../Skeleton/SkeletonImage";
 import "./LoadingIntro.css";
 
-/**
- * Loading Intro Component
- *
- * SVG 線描画のローディング演出は、Eshan Rajapakshe 氏の CodePen を参考に改変しています。
- * 参考作品: https://codepen.io/eshanrajapakshe/pen/KeBzRv
- * 作者: © Eshan Rajapakshe
- *
- * 当該 Pen 自体も Wokine.com の SVG アニメーション再制作であり、
- * Mack Ayache 氏の Pen (https://codepen.io/Ayachem/pen/KaLbZK) を再デザインしたものです。
- */
-
-type Phase = "draw" | "identity" | "exit" | "done";
+type Phase = "loading" | "identity" | "exit" | "done";
 
 type LoadingIntroProps = {
+  topReady: boolean;
+  mainChunkReady: boolean;
   onComplete: () => void;
 };
 
-const DRAW_MS = 2600;
-const IDENTITY_MS = 1800;
-const EXIT_MS = 900;
+const IDENTITY_MS = 900;
+const EXIT_MS = 500;
 
-export const LoadingIntro = ({ onComplete }: LoadingIntroProps) => {
-  const [phase, setPhase] = useState<Phase>("draw");
+export const LoadingIntro = ({
+  topReady,
+  mainChunkReady,
+  onComplete,
+}: LoadingIntroProps) => {
+  const progress = useSmoothProgress();
+  const [phase, setPhase] = useState<Phase>("loading");
+  const finishingRef = useRef(false);
 
   useEffect(() => {
-    if (phase !== "draw") return;
+    const boot = document.getElementById("boot-loader");
+    if (!boot) return;
 
-    const timer = window.setTimeout(() => setPhase("identity"), DRAW_MS);
+    const frame = requestAnimationFrame(() => {
+      boot.setAttribute("data-hidden", "true");
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (mainChunkReady) {
+      markProgressMilestone(PROGRESS_MILESTONES.mainChunk);
+    }
+  }, [mainChunkReady]);
+
+  useEffect(() => {
+    if (topReady) {
+      markProgressMilestone(PROGRESS_MILESTONES.topPainted);
+    }
+  }, [topReady]);
+
+  useEffect(() => {
+    if (phase !== "loading") return;
+    if (!topReady || !mainChunkReady || finishingRef.current) return;
+
+    finishingRef.current = true;
+    completeProgress();
+  }, [phase, topReady, mainChunkReady]);
+
+  useEffect(() => {
+    if (phase !== "loading") return;
+    if (!finishingRef.current) return;
+    if (progress < 100) return;
+
+    const timer = window.setTimeout(() => setPhase("identity"), 160);
     return () => window.clearTimeout(timer);
-  }, [phase]);
+  }, [phase, progress]);
 
   useEffect(() => {
     if (phase !== "identity") return;
@@ -56,75 +91,30 @@ export const LoadingIntro = ({ onComplete }: LoadingIntroProps) => {
   return (
     <div
       className={`loading-intro ${phase === "exit" ? "loading-intro--exit" : ""}`}
-      aria-busy={phase === "draw"}
+      aria-busy={phase === "loading"}
       aria-live="polite"
     >
-      {phase === "draw" && (
-        <div className="loading-intro__draw">
-          <svg
-            className="loading-intro__word"
-            viewBox="0 0 760 150"
-            role="img"
-            aria-label="Portfolio"
-          >
-            <g className="letter letter-p">
-              <line className="stroke stroke-p-stem" x1="28" y1="18" x2="28" y2="132" />
-              <path
-                className="stroke stroke-p-bowl"
-                d="M28 18 H62 Q98 18 98 52 Q98 86 62 86 H28"
-              />
-            </g>
-
-            <g className="letter letter-o1">
-              <circle className="stroke stroke-o1" cx="155" cy="75" r="40" />
-            </g>
-
-            <g className="letter letter-r">
-              <line className="stroke stroke-r-stem" x1="220" y1="35" x2="220" y2="132" />
-              <path
-                className="stroke stroke-r-arm"
-                d="M220 72 Q220 38 258 38"
-              />
-            </g>
-
-            <g className="letter letter-t">
-              <line className="stroke stroke-t-stem" x1="312" y1="18" x2="312" y2="132" />
-              <line className="stroke stroke-t-bar" x1="278" y1="18" x2="348" y2="18" />
-            </g>
-
-            <g className="letter letter-f">
-              <line className="stroke stroke-f-stem" x1="388" y1="18" x2="388" y2="132" />
-              <line className="stroke stroke-f-top" x1="388" y1="18" x2="448" y2="18" />
-              <line className="stroke stroke-f-mid" x1="388" y1="68" x2="432" y2="68" />
-            </g>
-
-            <g className="letter letter-o2">
-              <circle className="stroke stroke-o2" cx="510" cy="75" r="40" />
-            </g>
-
-            <g className="letter letter-l">
-              <line className="stroke stroke-l" x1="575" y1="18" x2="575" y2="132" />
-            </g>
-
-            <g className="letter letter-i">
-              <line className="stroke stroke-i-stem" x1="625" y1="48" x2="625" y2="132" />
-              <line className="stroke stroke-i-dot" x1="625" y1="22" x2="625" y2="22" />
-            </g>
-
-            <g className="letter letter-o3">
-              <circle className="stroke stroke-o3" cx="700" cy="75" r="40" />
-            </g>
-
-            <line className="stroke stroke-accent" x1="748" y1="120" x2="748" y2="120" />
-          </svg>
+      {phase === "loading" && (
+        <div className="loading-intro__progress">
+          <span className="loading-intro__percent">{progress}</span>
+          <span className="loading-intro__percent-unit">%</span>
         </div>
       )}
 
-      {phase === "identity" && (
+      {(phase === "identity" || phase === "exit") && (
         <div className="loading-intro__identity">
-          <div className="loading-intro__icon">
-            <img src={HumanData.iconlink} alt={HumanData.name} />
-          </div>
+          <SkeletonImage
+            src={HumanData.iconlink}
+            srcSet={HumanData.iconSrcSet}
+            sizes="min(70vw, 260px)"
+            sources={HumanData.iconSources?.map((source) => ({
+              ...source,
+              sizes: "min(70vw, 260px)",
+            }))}
+            alt={HumanData.name}
+            variant="rect"
+            className="loading-intro__skeleton-image"
+          />
           <p className="loading-intro__name">{HumanData.name}</p>
         </div>
       )}

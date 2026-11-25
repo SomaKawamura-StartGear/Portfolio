@@ -1,21 +1,106 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="\images\profile.png" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kawamura Soma | Portfolio</title>
     <meta name="description" content="河村颯真 (Kawamura Soma) のポートフォリオ" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to right, #e9e4f0, #d3cce3);
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      #boot-loader[data-hidden="true"] {
+        display: none;
+      }
+      .boot-progress {
+        display: flex;
+        align-items: baseline;
+        gap: 0.1rem;
+        color: #1a1a1a;
+        font-variant-numeric: tabular-nums;
+      }
+      #boot-percent {
+        font-size: clamp(3.5rem, 10vw, 5.5rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .boot-unit {
+        font-size: clamp(1.4rem, 4vw, 2rem);
+        font-weight: 600;
+        opacity: 0.75;
+      }
+    </style>
   </head>
   <body>
+    <div id="boot-loader" aria-busy="true" aria-live="polite">
+      <div class="boot-progress">
+        <span id="boot-percent">0</span>
+        <span class="boot-unit">%</span>
+      </div>
+    </div>
+
     <div id="root"></div>
+
+    <script>
+      (function () {
+        var el = document.getElementById("boot-percent");
+        var target = 8;
+        var display = 8;
+        var ceiling = 16;
+        window.__bootProgress = 8;
+        if (el) el.textContent = "8";
+
+        var trickle = setInterval(function () {
+          if (target >= ceiling) return;
+          target += Math.max(0.3, (ceiling - target) * 0.1);
+        }, 300);
+
+        var tick = function () {
+          var boot = document.getElementById("boot-loader");
+          if (boot && boot.getAttribute("data-hidden") === "true") {
+            clearInterval(trickle);
+            return;
+          }
+          display += (target - display) * 0.14;
+          var value = Math.max(8, Math.min(99, Math.round(display)));
+          window.__bootProgress = value;
+          if (el) el.textContent = String(value);
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      })();
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Copyright Notice -->
-    <footer style="position: fixed; bottom: 15px; right: 15px; color: rgba(255,255,255,0.7); font-size: 16px; z-index: 1000; font-family: Arial, sans-serif; font-weight: 500;">
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <footer
+      style="
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+        z-index: 1000;
+        font-family: Arial, sans-serif;
+        font-weight: 500;
+      "
+    >
       © 2025 Kawamura Soma
     </footer>
   </body>
